@@ -1,0 +1,42 @@
+SERVIDOR FTP EN UBUNTU:
+
+En la M.V. Ubuntu Server 20.04.2:
+1. Instala el servicio FTP vsftpd:
+sudo apt install vsftpd
+2. Comprueba el estado del servicio:
+systemctl status vsftpd
+3. Crea una copia de seguridad del archivo /etc/vsftpd.conf:
+sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.orig
+4. Edita el archivo /etc/vsftpd.conf.
+5. Descomenta la línea write_enable=YES.
+Nota: Los usuarios locales podrán crear/eliminar archivos/directorios.
+6. Añade, al final del archivo, la línea allow_writeable_chroot=YES.
+Nota: Los usuarios locales podrán conectarse a sus correspondientes
+directorios de conexión...
+7. Descomenta la línea chroot_local_user=YES.
+Nota: ...aunque sólo podrán acceder a la parte del sistema de archivos
+que comienza en estos.
+8. Crea un usuario con nombre y contraseña usuarioftp:
+sudo adduser usuarioftp
+9. Reinicia el servicio y comprueba su estado:
+sudo service vsftpd restart
+systemctl status vsftpd
+
+En la M.V. Ubuntu 20.04.2:
+1. Crea, en el escritorio, el archivo (vacío) prueba.txt.
+2. Conéctate al servidor FTP como usuario usuarioftp.
+3. Comprueba que solo puedes acceder a la parte del sistema de
+archivos que comienza en el correspondiente directorio de conexión.
+Nota: Observa, para ello, las respuestas obtenidas al ejecutar los
+comandos “pwd” y “cd ..”.
+4. Sube el archivo prueba.txt al susodicho directorio de conexión con el
+identificador pruebaSubida.txt.
+5. Desconéctate del servidor.
+6. Conéctate al servidor con el susodicho usuario.
+7. Baja el archivo pruebaSubida.txt al escritorio con el identificador
+pruebaBajada.txt.
+Nota: Para comprobar que la subida/bajada han ido bien debes
+asegurarte de que:
+• El archivo “pruebaSubida.txt” aparece dentro del directorio de
+conexión del susodicho usuario.
+• El archivo “pruebaBajada.txt” aparece en el escritorio.
