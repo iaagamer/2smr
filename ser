@@ -35,3 +35,29 @@ asegurarte de que:
 • El archivo “pruebaSubida.txt” aparece dentro del directorio de
 conexión del susodicho usuario.
 • El archivo “pruebaBajada.txt” aparece en el escritorio.
+
+Configuración del Servidor FTP en Windows:
+
+aso 1: Instalar el servicio FTP en la máquina servidor:
+
+    Ve a "Panel de control" -> "Programas" -> "Programas y características".
+    Haz clic en "Activar o desactivar las características de Windows".
+    Busca y marca la casilla "Servicio de transferencia de archivos (FTP)".
+    Haz clic en "Aceptar" y espera a que se instale.
+
+Paso 2: Configurar el servidor FTP:
+
+    Abre el "Administrador del IIS" (Internet Information Services) desde el menú de inicio o buscándolo.
+    En el panel izquierdo, expande el nombre de tu computadora.
+    Haz clic derecho en "Sitios FTP" y selecciona "Agregar sitio FTP".
+    Asigna un nombre para el sitio FTP y establece la ruta física a la carpeta que deseas compartir.
+    En la siguiente pantalla, elige un intervalo de direcciones IP para el servidor FTP o déjalo en blanco para aceptar todas.
+    Selecciona un tipo de autenticación, por ejemplo, "Autenticación básica".
+    Completa el asistente para crear el sitio FTP.
+
+Paso 3: Configurar permisos y firewall:
+
+    Asegúrate de que el firewall de Windows permita el tráfico a través del puerto 21 (puerto por defecto para FTP).
+    Configura los permisos de la carpeta compartida para permitir acceso al usuario o grupo deseado.
+
+
